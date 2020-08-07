@@ -25,146 +25,146 @@ $hover: #75daad;
 $bg-transition: background-color 100ms linear, color 100ms linear;
 
 .choosely-select {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    display: inline-block;
-    position: relative;
-    min-width: 300px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  position: relative;
+  min-width: 300px;
 
-    .choosely-selected,
-    .choosely-option-container {
-        background: #fff;
-        box-shadow: 0px 5px 8px 0px #00000020;
+  .choosely-selected,
+  .choosely-option-container {
+    background: #fff;
+    box-shadow: 0px 5px 8px 0px #00000020;
+  }
+
+  .choosely-search {
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+
+    input {
+      background: transparent;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      display: inline-block;
+      width: 85%;
+      padding: 12px 0px;
+      box-sizing: border-box;
+    }
+    span {
+      width: 15%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    svg {
+      opacity: 0.3;
+      height: 20px;
+      display: inline-block;
+    }
+  }
+
+  .choosely-selected-option {
+    background-color: lighten($hover, 25%);
+  }
+
+  .choosely-selected,
+  .choosely-option {
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+
+  .choosely-selected {
+    transition: $bg-transition;
+    color: $font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+
+    &:hover {
+      background-color: rgba($hover, 0.9);
+      color: white;
     }
 
-    .choosely-search {
-        background: #eee;
-        display: flex;
-        flex-direction: row;
-        justify-content: stretch;
-        align-items: center;
-
-        input {
-            background: transparent;
-            font-size: 1rem;
-            border: none;
-            outline: none;
-            display: inline-block;
-            width: 85%;
-            padding: 12px 0px;
-            box-sizing: border-box;
-        }
-        span {
-            width: 15%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        svg {
-            opacity: 0.3;
-            height: 20px;
-            display: inline-block;
-        }
+    svg {
+      opacity: 0.5;
+      height: 20px;
+      margin-left: 20px;
+      transition: transform 200ms ease;
+      transform: translateX(3px) scaleY(0.9);
     }
+  }
 
-    .choosely-selected,
-    .choosely-option {
-        cursor: pointer;
-        padding: 10px 20px;
-
-        &.hidden-option {
-            display: none;
-        }
+  .choosely-option {
+    &.hidden {
+      display: none;
     }
+    &:hover {
+      background-color: rgba($hover, 0.1);
+      color: $font-color;
+    }
+    &:active {
+      transition: $bg-transition;
+      background-color: $hover;
+      color: white;
+    }
+    &.selected {
+      background: rgba($hover, 0.4);
 
+      &::before {
+        content: '✅';
+        display: inline-block;
+        padding-right: 10px;
+      }
+    }
+  }
+  .choosely-option-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: scroll;
+    transform: translateY(-50%) scaleY(0);
+    transition: transform 100ms ease;
+  }
+  &.c-opened {
     .choosely-selected {
-        transition: $bg-transition;
-        color: $font-color;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 20px;
+      transition: $bg-transition;
+      background-color: darken($hover, 10);
+      color: white;
 
-        &:hover {
-            background-color: rgba($hover, 0.9);
-            color: white;
-        }
-
-        svg {
-            opacity: 0.5;
-            height: 20px;
-            margin-left: 20px;
-            transition: transform 200ms ease;
-            transform: translateX(3px) scaleY(0.9);
-        }
-    }
-
-    .choosely-option {
-        &.hidden {
-            display: none;
-        }
-        &:hover {
-            background-color: rgba($hover, 0.1);
-            color: $font-color;
-        }
-        &:active {
-            transition: $bg-transition;
-            background-color: $hover;
-            color: white;
-        }
-        &.selected {
-            background: rgba($hover, 0.4);
-
-            &::before {
-                content: "✅";
-                display: inline-block;
-                padding-right: 10px;
-            }
-        }
+      svg {
+        transform: translateX(3px) scaleY(0.9) rotateX(180deg);
+      }
     }
     .choosely-option-container {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        max-height: 300px;
-        overflow-y: scroll;
-        transform: translateY(-50%) scaleY(0);
-        transition: transform 100ms ease;
+      transform: translateY(0) scaleY(1);
     }
-    &.c-opened {
-        .choosely-selected {
-            transition: $bg-transition;
-            background-color: darken($hover, 10);
-            color: white;
+  }
 
-            svg {
-                transform: translateX(3px) scaleY(0.9) rotateX(180deg);
-            }
-        }
-        .choosely-option-container {
-            transform: translateY(0) scaleY(1);
-        }
-    }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
 
-    /* width */
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #eee;
+  }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #eee;
-    }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+  }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #ccc;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: $hover;
-    }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $hover;
+  }
 }
