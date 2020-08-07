@@ -1,4 +1,23 @@
 {
+    "name": "choosely",
+    "description": "",
+    "version": "1.0.0",
+    "main": "custom-select.js",
+    "dependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bmartin97/choosely.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/bmartin97/choosely/issues"
+    },
+    "homepage": "https://github.com/bmartin97/choosely#readme",
     "devDependencies": {
         "cssnano": "^4.1.10",
         "sass": "^1.26.10"
