@@ -1,26 +1,30 @@
 {
     "name": "choosely",
     "description": "",
-    "version": "1.0.0",
-    "main": "custom-select.js",
+    "version": "1.0.6",
+    "main": "dist/choosely.min.js",
     "dependencies": {},
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "webpack --mode production",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bmartin97/choosely.git"
     },
     "keywords": [],
-    "author": "",
+    "author": "bmartin97",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/bmartin97/choosely/issues"
     },
     "homepage": "https://github.com/bmartin97/choosely#readme",
     "devDependencies": {
-        "cssnano": "^4.1.10",
-        "sass": "^1.26.10"
+        "@babel/core": "^7.11.1",
+        "babel-loader": "^8.1.0",
+        "sass": "^1.26.10",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
     },
     "prettier": {
         "trailingComma": "none",

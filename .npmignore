@@ -1,0 +1,5 @@
+.git
+src
+node_modules
+index.html
+webpack.config.js

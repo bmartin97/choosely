@@ -22,7 +22,7 @@ function createAttributesFromAttributeList(attrObject, attrArray) {
         .join(' ');
 }
 
-class Choosely {
+export default class Choosely {
     constructor({
         selector = undefined,
         target = undefined,
