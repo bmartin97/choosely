@@ -1,7 +1,7 @@
 {
     "name": "choosely",
     "description": "",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "main": "dist/choosely.min.js",
     "dependencies": {},
     "scripts": {

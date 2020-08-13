@@ -29,22 +29,17 @@ export default class Choosely {
         searchable = false,
         inheritAttributes = false,
         enableArrowNavigation = true,
-        on = {
-            Init,
-            Open,
-            Close,
-            Select
-        }
+        on = {}
     }) {
         if (on.Init) {
             if (typeof on.Init === 'function') {
                 this.onInit = on.Init;
             } else {
                 console.warn(`on Init property is not a function!`);
-                this.onInit = function () { };
+                this.onInit = function () {};
             }
         } else {
-            this.onInit = function () { };
+            this.onInit = function () {};
         }
 
         if (on.Open) {
@@ -52,30 +47,30 @@ export default class Choosely {
                 this.onOpen = on.Open;
             } else {
                 console.warn(`on Open property is not a function!`);
-                this.onOpen = function () { };
+                this.onOpen = function () {};
             }
         } else {
-            this.onOpen = function () { };
+            this.onOpen = function () {};
         }
         if (on.Close) {
             if (typeof on.Close === 'function') {
                 this.onClose = on.Close;
             } else {
                 console.warn(`on Close property is not a function!`);
-                this.onClose = function () { };
+                this.onClose = function () {};
             }
         } else {
-            this.onClose = function () { };
+            this.onClose = function () {};
         }
         if (on.Select) {
             if (typeof on.Select === 'function') {
                 this.onSelect = on.Select;
             } else {
                 console.warn(`on Select property is not a function!`);
-                this.onSelect = function () { };
+                this.onSelect = function () {};
             }
         } else {
-            this.onSelect = function () { };
+            this.onSelect = function () {};
         }
 
         this.state = {
@@ -159,7 +154,7 @@ export default class Choosely {
 
                             return `<div ${createAttributesFromAttributeList(attributes, inheritAttributes)} ${
                                 !inheritAttributes.includes('class') ? 'class="choosely-option"' : ''
-                                }>${text}</div>`;
+                            }>${text}</div>`;
                         });
                     } else if (typeof inheritAttributes === 'boolean') {
                         // True
@@ -193,13 +188,13 @@ export default class Choosely {
                     </div>
                     <div class="choosely-option-container">
                         ${
-                searchable
-                    ? `
+                            searchable
+                                ? `
                             <div class="choosely-search">
                                 <input type="search" autocomplete="off">
                             </div>`
-                    : ``
-                }
+                                : ``
+                        }
                         <div class="choosely-options">
                             ${renderOptions().join('')}
                         </div>
