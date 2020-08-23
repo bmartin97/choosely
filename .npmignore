@@ -3,3 +3,6 @@ src
 node_modules
 index.html
 webpack.config.js
+.prettierrc
+.gitignore
+dev
