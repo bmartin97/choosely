@@ -23,14 +23,16 @@ function createAttributesFromAttributeList(attrObject, attrArray) {
 }
 
 export default class Choosely {
-    constructor({
+    constructor(
         selector = undefined,
-        target = undefined,
-        searchable = false,
-        inheritAttributes = false,
-        enableArrowNavigation = true,
-        on = {}
-    }) {
+        {
+            target = undefined,
+            searchable = false,
+            inheritAttributes = false,
+            enableArrowNavigation = true,
+            on = {}
+        }
+    ) {
         if (on.Init) {
             if (typeof on.Init === 'function') {
                 this.onInit = on.Init;
@@ -134,7 +136,9 @@ export default class Choosely {
                 if (_targetElement) {
                     this.targetElement = _targetElement;
                 } else {
-                    throw new Error(`Source element doesn't have parent elements. Please define target element.`);
+                    throw new Error(
+                        `Source element doesn't have parent elements. Please define target element.`
+                    );
                 }
             }
 
@@ -152,7 +156,10 @@ export default class Choosely {
                             _clone.classList.add('choosely-option');
                             const attributes = _clone.attributes;
 
-                            return `<div ${createAttributesFromAttributeList(attributes, inheritAttributes)} ${
+                            return `<div ${createAttributesFromAttributeList(
+                                attributes,
+                                inheritAttributes
+                            )} ${
                                 !inheritAttributes.includes('class') ? 'class="choosely-option"' : ''
                             }>${text}</div>`;
                         });
@@ -208,7 +215,9 @@ export default class Choosely {
             this.state.Selected = _element.querySelector('.choosely-selected');
             this.state.Options = _element.querySelectorAll('.choosely-option');
             this.state.Options[0].classList.add('choosely-selected-option');
-            this.chooselyOptionsElement = _element.querySelector('.choosely-option-container .choosely-options');
+            this.chooselyOptionsElement = _element.querySelector(
+                '.choosely-option-container .choosely-options'
+            );
 
             this.state.Selected.addEventListener('click', () => {
                 if (this.IsOpened) {
@@ -243,22 +252,36 @@ export default class Choosely {
                     if (this.IsOpened) {
                         if (event.which === 40) {
                             // Down arrow
-                            const indexOfSelectedOption = Array.from(this.state.FilteredOptions).findIndex((_option) =>
-                                _option.classList.contains('choosely-selected-option')
-                            );
-                            if (0 <= indexOfSelectedOption && indexOfSelectedOption < this.state.FilteredOptions.length - 1) {
-                                this.state.FilteredOptions[indexOfSelectedOption].classList.remove('choosely-selected-option');
-                                this.state.FilteredOptions[indexOfSelectedOption + 1].classList.add('choosely-selected-option');
+                            const indexOfSelectedOption = Array.from(
+                                this.state.FilteredOptions
+                            ).findIndex((_option) => _option.classList.contains('choosely-selected-option'));
+                            if (
+                                0 <= indexOfSelectedOption &&
+                                indexOfSelectedOption < this.state.FilteredOptions.length - 1
+                            ) {
+                                this.state.FilteredOptions[indexOfSelectedOption].classList.remove(
+                                    'choosely-selected-option'
+                                );
+                                this.state.FilteredOptions[indexOfSelectedOption + 1].classList.add(
+                                    'choosely-selected-option'
+                                );
                                 this.Select(this.state.FilteredOptions[indexOfSelectedOption + 1]);
                             }
                         } else if (event.which === 38) {
                             // Up arrow
-                            const indexOfSelectedOption = Array.from(this.state.FilteredOptions).findIndex((_option) =>
-                                _option.classList.contains('choosely-selected-option')
-                            );
-                            if (1 <= indexOfSelectedOption && indexOfSelectedOption < this.state.FilteredOptions.length) {
-                                this.state.FilteredOptions[indexOfSelectedOption].classList.remove('choosely-selected-option');
-                                this.state.FilteredOptions[indexOfSelectedOption - 1].classList.add('choosely-selected-option');
+                            const indexOfSelectedOption = Array.from(
+                                this.state.FilteredOptions
+                            ).findIndex((_option) => _option.classList.contains('choosely-selected-option'));
+                            if (
+                                1 <= indexOfSelectedOption &&
+                                indexOfSelectedOption < this.state.FilteredOptions.length
+                            ) {
+                                this.state.FilteredOptions[indexOfSelectedOption].classList.remove(
+                                    'choosely-selected-option'
+                                );
+                                this.state.FilteredOptions[indexOfSelectedOption - 1].classList.add(
+                                    'choosely-selected-option'
+                                );
                                 this.Select(this.state.FilteredOptions[indexOfSelectedOption - 1]);
                             }
                         } else if (event.keyCode === 13) {

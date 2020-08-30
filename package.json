@@ -5,6 +5,7 @@
     "main": "dist/choosely.min.js",
     "dependencies": {},
     "scripts": {
+        "dev": "",
         "build": "npm run build:prod & npm run build:dev",
         "build:prod": "webpack --mode production",
         "build:dev": "webpack --mode development",

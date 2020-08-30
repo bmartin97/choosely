@@ -7,7 +7,7 @@
     "jsxBracketSameLine": true,
     "bracketSpacing": true,
     "arrowParens": "always",
-    "printWidth": 140,
+    "printWidth": 110,
     "endOfLine": "lf",
     "overrides": [
         {
