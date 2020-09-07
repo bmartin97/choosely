@@ -37,7 +37,7 @@ const choosely_selector1 = new Choosely('form .form-item.form-type-select select
 ## Options
 
 | Parameter             | Type                     | Default      |
-| --------------------- | ------------------------ | ------------ |
+|-----------------------|--------------------------|--------------|
 | target                | String or \<HTMLELement> | undefined    |
 | searchable            | Boolean                  | False        |
 | inheritAttributes     | Boolean or Array         | False        |
@@ -94,6 +94,7 @@ HTML
 ---
 
 ## Searchable
+
 
 ## inheritAttributes
 

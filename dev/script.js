@@ -1,10 +1,7 @@
 import Choosely from '../src/index';
 
-const selector1 = new Choosely({
-    selector: 'form .form-item.form-type-select select'
-});
-const selector1 = new Choosely({
-    selector: 'form .form-item.form-type-select select',
+const selector1 = new Choosely('form .form-item.form-type-select select');
+const selector2 = new Choosely('form .form-item.form-type-select select', {
     searchable: true,
     inheritAttributes: ['value', 'style'], // default false,
     enableArrowNavigation: true,

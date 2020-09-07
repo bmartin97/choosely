@@ -31,49 +31,16 @@ export default class Choosely {
             inheritAttributes = false,
             enableArrowNavigation = true,
             on = {}
-        }
+        } = {}
     ) {
-        if (on.Init) {
-            if (typeof on.Init === 'function') {
-                this.onInit = on.Init;
-            } else {
-                console.warn(`on Init property is not a function!`);
-                this.onInit = function () {};
-            }
-        } else {
-            this.onInit = function () {};
-        }
-
-        if (on.Open) {
-            if (typeof on.Open === 'function') {
-                this.onOpen = on.Open;
-            } else {
-                console.warn(`on Open property is not a function!`);
-                this.onOpen = function () {};
-            }
-        } else {
-            this.onOpen = function () {};
-        }
-        if (on.Close) {
-            if (typeof on.Close === 'function') {
-                this.onClose = on.Close;
-            } else {
-                console.warn(`on Close property is not a function!`);
-                this.onClose = function () {};
-            }
-        } else {
-            this.onClose = function () {};
-        }
-        if (on.Select) {
-            if (typeof on.Select === 'function') {
-                this.onSelect = on.Select;
-            } else {
-                console.warn(`on Select property is not a function!`);
-                this.onSelect = function () {};
-            }
-        } else {
-            this.onSelect = function () {};
-        }
+        const functionProps = ['Init', 'Open', 'Close', 'Select'];
+        functionProps.forEach((prop) => {
+            if (typeof on[prop] === 'function') {
+                this['on' + prop] = on[prop];
+            } else if (on[prop] === null) {
+                this['on' + prop] = function () {};
+            } else throw `${prop} property defined, but it is not a function!`;
+        });
 
         this.state = {
             _selected: null,
